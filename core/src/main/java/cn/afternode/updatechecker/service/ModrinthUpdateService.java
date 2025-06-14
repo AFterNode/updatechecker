@@ -80,6 +80,13 @@ public class ModrinthUpdateService implements UpdateService<ModrinthUpdateServic
         return latest != null && format.isNewerThan(latest.version, current) ? latest : null;
     }
 
+    /**
+     * Modrinth version metadata
+     * @param version version
+     * @param url download URL
+     * @param changelog changelog
+     * @param stable stability
+     */
     public record Version(
             @Override String version,
             @Override String url,

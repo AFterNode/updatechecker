@@ -18,6 +18,10 @@ public class SpigetUpdateService implements UpdateService<SpigetUpdateService.Ve
 
     private final int resource;
 
+    /**
+     * Create with specified resource ID
+     * @param resource resource ID
+     */
     public SpigetUpdateService(int resource) {
         this.resource = resource;
     }
@@ -41,14 +45,28 @@ public class SpigetUpdateService implements UpdateService<SpigetUpdateService.Ve
         return null;
     }
 
-    public String getDownloadUrl(HttpService http, Version version) {
+    /**
+     * Get download URL for version
+     * @param version version
+     * @return result
+     */
+    public String getDownloadUrl(Version version) {
         return "https://spiget.org/resources/%s/versions/%s/download".formatted(this.resource, version.uuid);
     }
 
-    public String getLatestDownloadUrl(HttpService http) {
+    /**
+     * Get download URL for latest
+     * @return result
+     */
+    public String getLatestDownloadUrl() {
         return "https://spiget.org/resources/%s/versions/latest/download".formatted(this.resource);
     }
 
+    /**
+     * Spiget version metadata
+     * @param version version name
+     * @param uuid version UUID
+     */
     public record Version(String version, UUID uuid) implements VersionManifest {
         @Override
         public String url() {

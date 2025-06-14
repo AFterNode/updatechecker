@@ -6,15 +6,25 @@ import okhttp3.Response;
 
 import java.io.IOException;
 
+/**
+ * HttpService implementation with OkHttp3
+ */
 public class OkHttpService implements HttpService {
     private final OkHttpClient client;
 
+    /**
+     * Create with client
+     * @param client client
+     */
     public OkHttpService(OkHttpClient client) {
         this.client = client;
     }
 
+    /**
+     * Create with default {@link OkHttpClient}
+     */
     public OkHttpService() {
-        this(new OkHttpClient.Builder().build());
+        this(new OkHttpClient());
     }
 
     @Override

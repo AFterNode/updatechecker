@@ -12,10 +12,17 @@ import java.net.http.HttpResponse;
 public class SimpleHttpService implements HttpService {
     private final HttpClient client;
 
+    /**
+     * Create with specified client
+     * @param client client
+     */
     public SimpleHttpService(HttpClient client) {
         this.client = client;
     }
 
+    /**
+     * Create from {@link HttpClient#newHttpClient()}
+     */
     public SimpleHttpService() {
         this(HttpClient.newHttpClient());
     }

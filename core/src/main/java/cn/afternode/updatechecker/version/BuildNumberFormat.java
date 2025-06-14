@@ -11,6 +11,11 @@ public class BuildNumberFormat implements VersionFormat {
         return parse(a) > parse(b);
     }
 
+    /**
+     * Parse integer only
+     * @param version version string
+     * @return result
+     */
     protected int parse(String version) {
         StringBuilder digits = new StringBuilder();
         boolean abPassed = false;

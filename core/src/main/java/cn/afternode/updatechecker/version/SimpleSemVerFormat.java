@@ -26,6 +26,11 @@ public class SimpleSemVerFormat implements VersionFormat {
         return false;
     }
 
+    /**
+     * Parse SemVer string
+     * @param version string
+     * @return result
+     */
     protected Parsed parse(String version) {
         String extras = null;
         int extrasSplit = version.indexOf('-');
@@ -52,6 +57,13 @@ public class SimpleSemVerFormat implements VersionFormat {
         return version.contains("snapshot") || version.contains("alpha") || version.contains("beta");
     }
 
+    /**
+     * SemVer data
+     * @param major major
+     * @param minor minor
+     * @param patch patch
+     * @param extras extra strings
+     */
     protected record Parsed(
             int major,
             int minor,

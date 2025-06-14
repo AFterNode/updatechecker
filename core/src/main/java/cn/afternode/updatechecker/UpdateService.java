@@ -4,6 +4,10 @@ import cn.afternode.updatechecker.http.HttpService;
 
 import java.io.IOException;
 
+/**
+ * Update service base
+ * @param <V> version manifest type
+ */
 public interface UpdateService<V extends VersionManifest> {
     /**
      * Fetch the latest version

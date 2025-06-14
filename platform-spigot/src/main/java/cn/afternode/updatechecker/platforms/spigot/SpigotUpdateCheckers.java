@@ -130,6 +130,7 @@ public class SpigotUpdateCheckers {
      * @param plugin Plugin instance for {@link org.bukkit.scheduler.BukkitScheduler#runTaskAsynchronously(Plugin, Runnable)}
      * @param service Service for checking
      * @param seconds Period seconds
+     * @param handler  Result handler
      * @return Created bukkit task
      * @param <V> Version manifest type
      */
