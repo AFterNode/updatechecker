@@ -3,3 +3,4 @@ rootProject.name = 'updatechecker'
 include ":core"
 include ":http-hc5"
 include ":http-okhttp3"
+include ":platform-spigot"

@@ -1,0 +1,13 @@
+repositories {
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+}
+
+dependencies {
+    api project(":core")
+    api(project(":http-hc5")) {
+        exclude group: "org.apache.httpcomponents.client5"
+    }
+
+    compileOnly 'org.spigotmc:spigot-api:1.17.1-R0.1-SNAPSHOT'
+}
