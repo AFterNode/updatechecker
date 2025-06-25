@@ -1,9 +1,6 @@
 import cn.afternode.updatechecker.VersionManifest;
 import cn.afternode.updatechecker.http.SimpleHttpService;
-import cn.afternode.updatechecker.service.ForgeUpdateService;
-import cn.afternode.updatechecker.service.GitHubReleaseUpdateService;
-import cn.afternode.updatechecker.service.ModrinthUpdateService;
-import cn.afternode.updatechecker.service.SpigetUpdateService;
+import cn.afternode.updatechecker.service.*;
 import cn.afternode.updatechecker.version.SimpleSemVerFormat;
 import org.junit.jupiter.api.Test;
 
@@ -45,5 +42,12 @@ public class TestUpdateService {
         System.out.println("=== GitHub ===");
         GitHubReleaseUpdateService service = new GitHubReleaseUpdateService("afn-ArcNode", "NullProtect", 5);
         System.out.println(service.findLatestVersion(http, true));
+    }
+
+    @Test
+    public void testGitea() throws IOException {
+        System.out.println("=== Gitea ===");
+        GiteaUpdateService svc = GiteaUpdateService.codeberg("zyklone", "LiarX");
+        System.out.println(svc.findLatestVersion(http, true));
     }
 }

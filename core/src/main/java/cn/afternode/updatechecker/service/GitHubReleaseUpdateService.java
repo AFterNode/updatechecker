@@ -12,7 +12,7 @@ import com.google.gson.JsonObject;
 import java.io.IOException;
 
 /**
- * Update checker uses GitHub Release API
+ * Update checker uses GitHub Release API, with release page as URL
  */
 public class GitHubReleaseUpdateService implements UpdateService<VersionManifest.Basic> {
     private final String owner, repository;
