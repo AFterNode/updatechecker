@@ -1,6 +1,7 @@
 import cn.afternode.updatechecker.VersionManifest;
 import cn.afternode.updatechecker.http.SimpleHttpService;
 import cn.afternode.updatechecker.service.ForgeUpdateService;
+import cn.afternode.updatechecker.service.GitHubReleaseUpdateService;
 import cn.afternode.updatechecker.service.ModrinthUpdateService;
 import cn.afternode.updatechecker.service.SpigetUpdateService;
 import cn.afternode.updatechecker.version.SimpleSemVerFormat;
@@ -37,5 +38,12 @@ public class TestUpdateService {
         VersionManifest.Basic version = service.findLatestVersion(http, true);
         System.out.println(version);
         System.out.println(service.findNewerVersion(http, version.version(), new SimpleSemVerFormat(), false));
+    }
+
+    @Test
+    public void testGitHub() throws IOException {
+        System.out.println("=== GitHub ===");
+        GitHubReleaseUpdateService service = new GitHubReleaseUpdateService("afn-ArcNode", "NullProtect", 5);
+        System.out.println(service.findLatestVersion(http, true));
     }
 }
